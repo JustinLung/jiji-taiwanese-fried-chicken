@@ -29,6 +29,17 @@ export const links: NavLink[] = [
   },
 ]
 
+export const legalLinks: NavLink[] = [
+  {
+    label: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    label: "Terms of Service",
+    href: "/terms-of-service",
+  },
+]
+
 export const contactDetails = {
   phoneLabel: "+31 20 123 45 67",
   phoneHref: "tel:+31201234567",
