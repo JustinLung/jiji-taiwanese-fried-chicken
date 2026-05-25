@@ -75,7 +75,7 @@ export default function Hero({
   secondaryAction,
   sizeBadge,
   usps,
-  showGradient = false,
+  showGradient = true,
 }: HeroProps) {
   const titleLines = getTitleLines(title)
   const actions = [primaryAction, secondaryAction].filter(

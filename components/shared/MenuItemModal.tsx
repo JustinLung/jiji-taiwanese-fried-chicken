@@ -94,14 +94,22 @@ export default function MenuItemModal({
             aria-modal="true"
             aria-labelledby={titleId}
             aria-describedby={descriptionId}
-            className="max-h-[calc(100svh-2rem)] w-full max-w-2xl overflow-hidden rounded-3xl border-[3px] border-black bg-grey-1 text-black shadow-[0_14px_0_#181816]"
+            className="relative max-h-[calc(100svh-2rem)] w-full max-w-2xl overflow-hidden rounded-3xl border-[3px] border-black bg-grey-1 text-black shadow-[0_14px_0_#181816]"
             initial={{ opacity: 0, y: 18, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <div className="max-h-[calc(100svh-2.4rem)] overflow-y-auto">
+            <button
+              ref={closeButtonRef}
+              type="button"
+              onClick={onClose}
+              className="absolute right-4 top-4 z-10 inline-flex min-h-11 items-center justify-center rounded-full border-2 border-black bg-brand-1 px-4 font-heading text-[0.62rem]! font-black uppercase leading-none! tracking-[0.12em] text-white shadow-[0_4px_0_#181816] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#181816] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-grey-1 active:translate-y-0.5 active:shadow-[0_2px_0_#181816]"
+            >
+              Close
+            </button>
+            <div className="max-h-[calc(100svh-2.4rem)] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="relative aspect-16/8.5 min-h-52 overflow-hidden border-b-[3px] border-black bg-grey-3">
                 <Image
                   src={item.image.src}
@@ -214,15 +222,6 @@ export default function MenuItemModal({
                     ))}
                   </ul>
                 </div>
-
-                <button
-                  ref={closeButtonRef}
-                  type="button"
-                  onClick={onClose}
-                  className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border-2 border-black bg-brand-1 px-6 font-heading text-small! font-black uppercase tracking-[0.08em] text-white shadow-[0_5px_0_#181816] transition hover:-translate-y-0.5 hover:shadow-[0_7px_0_#181816] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-grey-1 active:translate-y-0.5 active:shadow-[0_3px_0_#181816] sm:w-auto"
-                >
-                  Close Details
-                </button>
               </div>
             </div>
           </motion.div>
