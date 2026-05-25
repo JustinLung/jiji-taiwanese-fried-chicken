@@ -1,28 +1,12 @@
 import Hero from "@/components/shared/Hero"
 import Marquee from "@/components/shared/Marquee"
+import Reviews from "@/components/shared/Reviews"
+import MenuIcon from "@/components/icons/MenuIcon"
 import { links } from "@/utils/links"
+import { reviews } from "@/utils/reviews"
 
 const menuHref = links.find((link) => link.label === "Menu")?.href ?? "/menu"
 const findUsLink = links.find((link) => link.label === "Find Us")
-
-function MenuIcon() {
-  return (
-    <svg
-      className="size-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 5.5h9a3 3 0 0 1 3 3v10H7a3 3 0 0 1-3-3v-10Z" />
-      <path d="M16 8.5h1a3 3 0 0 1 3 3v7h-4" />
-      <path d="M7.5 9.5h5" />
-      <path d="M7.5 13h4" />
-    </svg>
-  )
-}
 
 export default function Home() {
   return (
@@ -44,7 +28,7 @@ export default function Home() {
         }}
         secondaryAction={{
           href: menuHref,
-          icon: <MenuIcon />,
+          icon: <MenuIcon className="size-5" />,
           iconPosition: "start",
           label: "View Full Menu",
           variant: "secondary",
@@ -70,6 +54,12 @@ export default function Home() {
         }}
       />
       <Marquee />
+      <Reviews
+        eyebrow="Loved By Locals"
+        title="What Chicken Fans Say"
+        ratingLabel="4.9/5 Rating (1,200+ Reviews)"
+        reviews={reviews}
+      />
     </>
   )
 }
