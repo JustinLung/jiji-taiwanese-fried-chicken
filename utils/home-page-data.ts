@@ -240,6 +240,7 @@ export async function getHomePageData() {
       action: {
         href: menuSection?.action?.href ?? menuHref,
         label: menuSection?.action?.label ?? "Explore Full Menu",
+        target: menuSection?.action?.target ?? undefined,
       },
       description:
         menuSection?.description ??

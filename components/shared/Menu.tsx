@@ -43,7 +43,12 @@ export default function Menu({
 
       {action && (
         <div className="mt-10 flex justify-center">
-          <Button href={action.href} icon={action.icon} className="min-h-12 px-6">
+          <Button
+            href={action.href}
+            target={action.target}
+            icon={action.icon}
+            className="min-h-12 px-6"
+          >
             {action.label}
           </Button>
         </div>

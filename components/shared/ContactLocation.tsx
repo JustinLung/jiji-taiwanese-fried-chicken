@@ -110,13 +110,13 @@ export default function ContactLocation({
             </Button>
             <Button
               href={contact?.menuPdfUrl ?? "/menu.pdf"}
-              download
+              target="_blank"
               variant="secondary"
               icon={<DownloadIcon className="size-4" />}
               iconPosition="start"
               className="min-h-11 px-5 text-[0.68rem]!"
             >
-              Download Menu PDF
+              View Menu PDF
             </Button>
           </div>
         </div>

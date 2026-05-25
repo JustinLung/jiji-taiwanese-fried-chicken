@@ -23,6 +23,7 @@ export type CmsHomePage = {
     action?: {
       href?: string | null
       label?: string | null
+      target?: "_blank" | "_self" | null
     } | null
     descriptions?: string[] | null
     eyebrow?: string | null
@@ -76,6 +77,7 @@ export type CmsHomePage = {
     action?: {
       href?: string | null
       label?: string | null
+      target?: "_blank" | "_self" | null
     } | null
     description?: string | null
     eyebrow?: string | null

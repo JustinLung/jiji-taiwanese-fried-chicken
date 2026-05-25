@@ -137,6 +137,7 @@ export type MenuProps = {
     href: string
     icon?: ReactNode
     label: string
+    target?: "_blank" | "_self"
   }
   description?: string
   eyebrow: string
