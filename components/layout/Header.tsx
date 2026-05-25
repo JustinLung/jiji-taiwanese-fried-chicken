@@ -20,7 +20,7 @@ export default function Header() {
       >
         <Link
           href="/"
-          className={`inline-flex shrink-0 items-center gap-3 rounded-sm ${focusRing}`}
+          className={`relative z-10 inline-flex shrink-0 items-center rounded-sm md:hidden ${focusRing}`}
           onClick={() => setIsMenuOpen(false)}
         >
           <Image
@@ -28,15 +28,21 @@ export default function Header() {
             alt="JiJi Fried Chicken"
             width={68}
             height={100}
-            className="h-16 w-auto md:hidden"
+            className="h-16 w-auto"
             priority
           />
+        </Link>
+        <Link
+          href="/"
+          className={`relative z-10 hidden shrink-0 items-center rounded-sm md:inline-flex ${focusRing}`}
+          onClick={() => setIsMenuOpen(false)}
+        >
           <Image
             src="/images/logo-red.png"
             alt="JiJi Fried Chicken"
             width={150}
             height={76}
-            className="hidden h-auto w-[150px] md:block"
+            className="h-auto w-[150px]"
             priority
           />
         </Link>
