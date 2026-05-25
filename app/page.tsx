@@ -2,6 +2,7 @@ import Hero from "@/components/shared/Hero"
 import Marquee from "@/components/shared/Marquee"
 import Menu from "@/components/shared/Menu"
 import Reviews from "@/components/shared/Reviews"
+import ContactLocation from "@/components/shared/ContactLocation"
 import MenuIcon from "@/components/icons/MenuIcon"
 import { links } from "@/utils/links"
 import { menuItems } from "@/utils/menu-items"
@@ -73,6 +74,7 @@ export default function Home() {
         ratingLabel="4.7/5 Rating (200+ Reviews)"
         reviews={reviews}
       />
+      <ContactLocation />
     </>
   )
 }
