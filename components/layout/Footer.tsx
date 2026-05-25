@@ -22,26 +22,12 @@ export default function Footer() {
               href="/"
               className="inline-flex items-center gap-4 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
             >
-              <span className="relative grid size-14 place-items-center overflow-hidden rounded-full bg-grey-1 ring-1 ring-white/15">
-                <Image
-                  src="/images/placeholder.jpg"
-                  alt=""
-                  fill
-                  sizes="56px"
-                  className="object-cover object-[52%_58%]"
-                />
-              </span>
-              <span>
-                <span
-                  id="footer-brand"
-                  className="block font-heading text-huge! font-black uppercase leading-none! tracking-wide text-brand-1"
-                >
-                  JiJi
-                </span>
-                <span className="mt-1 block font-heading text-extra-small! font-bold uppercase leading-tight! tracking-[0.18em] text-grey-0">
-                  Fried Chicken
-                </span>
-              </span>
+              <Image
+                src="/images/logo.png"
+                alt="JiJi Fried Chicken"
+                width={100}
+                height={100}
+              />
             </Link>
 
             <p className="mt-7 max-w-sm text-small! leading-6! text-grey-0/60">
@@ -124,8 +110,8 @@ export default function Footer() {
 
         <div className="site-footer-bottom mt-12 flex flex-row flex-wrap items-center justify-between gap-6 border-t border-white/10 pt-8 text-extra-small! text-grey-0/45">
           <p className="text-extra-small! leading-5!">
-            &copy; 2025 JiJi Authentic Taiwanese Fried Chicken. All
-            Rights Reserved.
+            &copy; 2025 JiJi Authentic Taiwanese Fried Chicken. All Rights
+            Reserved.
           </p>
           <nav aria-label="Legal links">
             <ul className="site-footer-legal flex flex-row flex-wrap gap-6">

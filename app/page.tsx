@@ -39,9 +39,9 @@ export default function Home() {
           { label: "Made-To-Order Crispness" },
         ]}
         sizeBadge={{
-          ariaLabel: "Jumbo size, 12 inches",
-          eyebrow: "Jumbo Size",
-          label: "12 Inches",
+          ariaLabel: "XL size, 100% Halal!",
+          eyebrow: "XL Size",
+          label: "100% Halal!",
         }}
         quote={{
           avatar: {
@@ -56,8 +56,8 @@ export default function Home() {
       <Marquee />
       <Reviews
         eyebrow="Loved By Locals"
-        title="What Chicken Fans Say"
-        ratingLabel="4.9/5 Rating (1,200+ Reviews)"
+        title="What JiJi Fans Say"
+        ratingLabel="4.7/5 Rating (200+ Reviews)"
         reviews={reviews}
       />
     </>

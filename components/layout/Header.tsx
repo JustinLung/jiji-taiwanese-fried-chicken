@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { contactDetails, links } from "@/utils/links"
+import { links } from "@/utils/links"
 
 const focusRing =
   "outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-grey-1"
@@ -23,24 +23,12 @@ export default function Header() {
           className={`inline-flex shrink-0 items-center gap-3 rounded-sm ${focusRing}`}
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="relative grid size-10 place-items-center overflow-hidden rounded-full bg-grey-0 ring-1 ring-black/10">
-            <Image
-              src="/images/placeholder.jpg"
-              alt=""
-              fill
-              sizes="40px"
-              className="object-cover object-[52%_58%]"
-              priority
-            />
-          </span>
-          <span aria-label="JiJi Fried Chicken">
-            <span className="block font-heading text-huge! font-black uppercase leading-none! text-brand-1">
-              JiJi
-            </span>
-            <span className="mt-0.5 block font-heading text-extra-small! font-bold uppercase leading-tight! tracking-[0.16em] text-black">
-              Fried Chicken
-            </span>
-          </span>
+          <Image
+            src="/images/logo-no-text.png"
+            alt="JiJi Fried Chicken"
+            width={50}
+            height={50}
+          />
         </Link>
 
         <ul className="hidden items-center gap-4 md:flex xl:gap-8">
