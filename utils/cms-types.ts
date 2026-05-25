@@ -82,6 +82,7 @@ export type CmsHomePage = {
     featuredItems?: Array<CmsMenuItem | null> | null
     title?: string | null
   } | null
+  marqueeItems?: CmsMarqueeItem[] | null
   reviewsSection?: {
     eyebrow?: string | null
     featuredReviews?: Array<CmsReview | null> | null
@@ -91,14 +92,32 @@ export type CmsHomePage = {
 }
 
 export type CmsSiteSettings = {
+  businessName?: string | null
   contact?: {
     addressLines?: string[] | null
     directionsUrl?: string | null
     emailLabel?: string | null
+    emailHref?: string | null
     menuPdfUrl?: string | null
     openingHours?: string[] | null
     phoneLabel?: string | null
+    phoneHref?: string | null
   } | null
+  copyrightText?: string | null
+  footerDescription?: string | null
+  legalLinks?: Array<{
+    href?: string | null
+    label?: string | null
+  }> | null
+  mainNavigation?: Array<{
+    href?: string | null
+    label?: string | null
+    target?: "_blank" | "_self" | null
+  }> | null
+  socialLinks?: Array<{
+    href?: string | null
+    label?: string | null
+  }> | null
 }
 
 export type CmsMarqueeItem = {

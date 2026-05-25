@@ -27,6 +27,7 @@ export const homePageQuery = defineQuery(`
         rating
       }
     },
+    marqueeItems,
     about{
       ...,
       images{
@@ -38,7 +39,7 @@ export const homePageQuery = defineQuery(`
     },
     reviewsSection{
       ...,
-      featuredReviews[]->{
+      featuredReviews[]{
         name,
         role,
         quote,
@@ -49,24 +50,14 @@ export const homePageQuery = defineQuery(`
   }
 `)
 
-export const marqueeItemsQuery = defineQuery(`
-  *[_type == "marqueeItem"] | order(sortOrder asc) {
-    icon,
-    label
-  }
-`)
-
-export const reviewsQuery = defineQuery(`
-  *[_type == "review"] | order(sortOrder asc) {
-    name,
-    role,
-    quote,
-    "avatarSrc": avatar.asset->url
-  }
-`)
-
 export const siteSettingsQuery = defineQuery(`
   *[_type == "siteSettings"][0]{
-    contact
+    businessName,
+    contact,
+    copyrightText,
+    footerDescription,
+    legalLinks,
+    mainNavigation,
+    socialLinks
   }
 `)

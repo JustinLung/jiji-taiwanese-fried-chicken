@@ -10,6 +10,14 @@ const iconOptions = [
   { title: "Spark", value: "spark" },
 ]
 
+const marqueeIconOptions = [
+  { title: "Check", value: "check" },
+  { title: "Flame", value: "flame" },
+  { title: "Medal", value: "medal" },
+  { title: "Spark", value: "spark" },
+  { title: "Star", value: "star" },
+]
+
 const actionFields = [
   defineField({
     name: "label",
@@ -221,6 +229,39 @@ export const homePage = defineType({
       ],
     }),
     defineField({
+      name: "marqueeItems",
+      title: "Marquee Items",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "label",
+              title: "Label",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "icon",
+              title: "Icon",
+              type: "string",
+              options: {
+                list: marqueeIconOptions,
+              },
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: {
+              title: "label",
+              subtitle: "icon",
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "about",
       title: "About Section",
       type: "object",
@@ -374,7 +415,54 @@ export const homePage = defineType({
           name: "featuredReviews",
           title: "Featured Reviews",
           type: "array",
-          of: [{ type: "reference", to: [{ type: "review" }] }],
+          of: [
+            {
+              type: "object",
+              fields: [
+                defineField({
+                  name: "name",
+                  title: "Name",
+                  type: "string",
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: "role",
+                  title: "Role",
+                  type: "string",
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: "quote",
+                  title: "Quote",
+                  type: "text",
+                  rows: 4,
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: "avatar",
+                  title: "Avatar",
+                  type: "image",
+                  options: {
+                    hotspot: true,
+                  },
+                  fields: [
+                    defineField({
+                      name: "alt",
+                      title: "Alt Text",
+                      type: "string",
+                    }),
+                  ],
+                }),
+              ],
+              preview: {
+                select: {
+                  title: "name",
+                  subtitle: "role",
+                  media: "avatar",
+                },
+              },
+            },
+          ],
         }),
       ],
     }),
