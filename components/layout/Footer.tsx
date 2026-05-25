@@ -1,30 +1,18 @@
 import Image from "next/image"
 import Link from "next/link"
-import { contactDetails, links, socialLinks } from "@/utils/links"
-
-const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Sitemap", href: "/sitemap" },
-]
+import Instagram from "@/components/icons/Instagram"
+import TikTok from "@/components/icons/TikTok"
+import { contactDetails, legalLinks, links, socialLinks } from "@/utils/links"
 
 const socialIcons = {
-  Instagram: (
-    <>
-      <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
-      <circle cx="12" cy="12" r="3.25" />
-      <path d="M16.85 7.2h.01" />
-    </>
-  ),
-  TikTok: (
-    <path d="M14 5v8.25a4.25 4.25 0 1 1-3.6-4.2v2.35a2 2 0 1 0 1.25 1.85V5h2.35c.4 2 1.6 3.25 3.5 3.65v2.35A6.75 6.75 0 0 1 14 9.75" />
-  ),
+  Instagram: <Instagram aria-hidden="true" className="size-4" />,
+  TikTok: <TikTok aria-hidden="true" className="size-4" />,
 }
 
 export default function Footer() {
   return (
     <footer
-      className="site-footer mt-24 bg-black text-grey-0"
+      className="site-footer bg-black text-grey-0"
       aria-labelledby="footer-heading"
     >
       <div className="container mx-auto px-4 py-12">
@@ -72,18 +60,7 @@ export default function Footer() {
                     aria-label={`Visit JiJi on ${social.label}`}
                     className="grid size-9 place-items-center rounded-md border border-white/15 bg-white/6 text-grey-0/75 transition hover:border-brand-1 hover:bg-brand-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
                   >
-                    <svg
-                      aria-hidden="true"
-                      viewBox="0 0 24 24"
-                      className="size-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      {socialIcons[social.label as keyof typeof socialIcons]}
-                    </svg>
+                    {socialIcons[social.label as keyof typeof socialIcons]}
                   </Link>
                 </li>
               ))}
