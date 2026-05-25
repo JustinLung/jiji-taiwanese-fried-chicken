@@ -118,7 +118,7 @@ export type AboutAction = {
 }
 
 export type AboutProps = {
-  action: AboutAction
+  action?: AboutAction
   descriptions: string[]
   eyebrow: string
   images: {

@@ -90,13 +90,15 @@ export default function About({
             ))}
           </ul>
 
-          <Button
-            href={action.href}
-            icon={action.icon}
-            className="mt-9 min-h-12 border-[3px] px-6"
-          >
-            {action.label}
-          </Button>
+          {action && (
+            <Button
+              href={action.href}
+              icon={action.icon}
+              className="mt-9 min-h-12 border-[3px] px-6"
+            >
+              {action.label}
+            </Button>
+          )}
         </header>
       </article>
     </section>

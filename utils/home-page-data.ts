@@ -94,6 +94,24 @@ function normalizeMarqueeItems(items: CmsMarqueeItem[] | null | undefined) {
   )
 }
 
+function normalizeAboutAction(about: CmsHomePage["about"], hasHomePage: boolean) {
+  if (about?.action?.href && about.action.label) {
+    return {
+      href: about.action.href,
+      label: about.action.label,
+    }
+  }
+
+  if (!hasHomePage) {
+    return {
+      href: "#menu",
+      label: "Read Our Full Heritage",
+    }
+  }
+
+  return undefined
+}
+
 export async function getHomePageData() {
   const [homePage, siteSettings] = await Promise.all([
     client.fetch<CmsHomePage | null>(homePageQuery, {}, { cache: "no-store" }),
@@ -112,10 +130,7 @@ export async function getHomePageData() {
 
   return {
     about: {
-      action: {
-        href: about?.action?.href ?? "#menu",
-        label: about?.action?.label ?? "Read Our Full Heritage",
-      },
+      action: normalizeAboutAction(about, Boolean(homePage)),
       descriptions: about?.descriptions ?? [
         "JiJi's began with a simple dream: to share the exact crunch, warmth, and flavor of Taipei's legendary night markets. Our journey started in a small corner stall in Shilin, where our secret 24-hour spice marinade and custom sweet potato flour batter became an overnight sensation.",
         "Today, we bring that authentic, hand-cut crispiness to you. Every single cutlet is butterfly-sliced, freshly seasoned, and hand-battered to achieve the famous 12-inch crispy signature bite that our happy mascot, JiJi, is so proud of.",

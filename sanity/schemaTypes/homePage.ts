@@ -23,13 +23,11 @@ const actionFields = [
     name: "label",
     title: "Label",
     type: "string",
-    validation: (Rule) => Rule.required(),
   }),
   defineField({
     name: "href",
     title: "URL",
     type: "string",
-    validation: (Rule) => Rule.required(),
   }),
   defineField({
     name: "target",
@@ -386,6 +384,7 @@ export const homePage = defineType({
         defineField({
           name: "action",
           title: "Action",
+          description: "Optional. Leave empty to hide the About section button.",
           type: "object",
           fields: actionFields,
         }),

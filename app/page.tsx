@@ -50,10 +50,7 @@ export default async function Home() {
         descriptions={about.descriptions}
         images={about.images}
         usps={about.usps}
-        action={{
-          ...about.action,
-          icon: "→",
-        }}
+        action={about.action ? { ...about.action, icon: "→" } : undefined}
       />
       <Reviews
         eyebrow={reviews.eyebrow}
