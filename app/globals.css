@@ -25,6 +25,11 @@
   --text-huge: 1.5rem;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
 body {
   background: var(--color-grey-1);
   color: var(--foreground);
@@ -75,6 +80,10 @@ small {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .site-marquee-track {
     animation: none;
   }
