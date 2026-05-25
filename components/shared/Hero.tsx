@@ -14,7 +14,7 @@ function getTitleLines(title: string) {
   }
 
   return title
-    .split(/(?<=\.)\s+/)
+    .split(/(?<=\.)\s*/)
     .map((line) => line.trim())
     .filter(Boolean)
 }
@@ -66,7 +66,7 @@ export default function Hero({
 
           <h1
             id="hero-heading"
-            className="font-heading text-[clamp(3.15rem,10vw,6.8rem)]! font-black uppercase leading-[0.88]! tracking-[-0.08em] text-black"
+            className="font-heading text-[clamp(3.15rem,10vw,6.8rem)]! font-black uppercase leading-[0.88]! tracking-[-0.08em] text-black wrap-break-word"
           >
             {titleLines.map((line, index) => (
               <span
