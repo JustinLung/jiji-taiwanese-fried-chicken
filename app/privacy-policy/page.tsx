@@ -77,6 +77,15 @@ export const metadata: Metadata = {
   title: "Privacy Policy | JiJi Fried Chicken",
   description:
     "Learn how JiJi Fried Chicken collects, uses, protects, and manages personal information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | JiJi Fried Chicken",
+    description:
+      "Learn how JiJi Fried Chicken collects, uses, protects, and manages personal information.",
+    url: "/privacy-policy",
+  },
 }
 
 export default async function PrivacyPolicyPage() {

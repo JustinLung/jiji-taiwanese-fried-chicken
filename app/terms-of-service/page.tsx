@@ -85,6 +85,15 @@ export const metadata: Metadata = {
   title: "Terms of Service | JiJi Fried Chicken",
   description:
     "Read the terms that apply when using the JiJi Fried Chicken website and restaurant services.",
+  alternates: {
+    canonical: "/terms-of-service",
+  },
+  openGraph: {
+    title: "Terms of Service | JiJi Fried Chicken",
+    description:
+      "Read the terms that apply when using the JiJi Fried Chicken website and restaurant services.",
+    url: "/terms-of-service",
+  },
 }
 
 export default async function TermsOfServicePage() {

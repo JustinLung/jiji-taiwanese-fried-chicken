@@ -15,9 +15,43 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000")
+
+const siteName = "JiJi Taiwanese Fried Chicken"
+const siteDescription =
+  "Authentic Taiwanese fried chicken in Amsterdam, serving XL crispy chicken cutlets, popcorn chicken, and Taipei night market flavours made fresh to order."
+const previewImage = {
+  url: "/web-app-manifest-512x512.png",
+  width: 512,
+  height: 512,
+  alt: "JiJi Fried Chicken mascot logo",
+}
+
 export const metadata: Metadata = {
-  title: "JiJi Fried Chicken",
-  description: "Bringing the crunch to the heart of Amsterdam—XL Taiwanese fried chicken and crispy popcorn chicken. Taste the tradition with every bite!",
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  title: {
+    default: `${siteName} | Taiwanese Fried Chicken in Amsterdam`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "Taiwanese fried chicken Amsterdam",
+    "JiJi Fried Chicken",
+    "Taiwanese chicken cutlet",
+    "popcorn chicken Amsterdam",
+    "Taipei night market food",
+    "halal fried chicken Amsterdam",
+  ],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
   icons: {
     icon: [
       {
@@ -40,6 +74,31 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+  openGraph: {
+    title: `${siteName} | Taiwanese Fried Chicken in Amsterdam`,
+    description: siteDescription,
+    siteName,
+    locale: "en_NL",
+    type: "website",
+    images: [previewImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Taiwanese Fried Chicken in Amsterdam`,
+    description: siteDescription,
+    images: [previewImage],
+  },
 }
 
 export const viewport: Viewport = {

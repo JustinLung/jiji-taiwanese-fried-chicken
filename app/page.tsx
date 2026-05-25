@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Hero from "@/components/shared/Hero"
 import Marquee from "@/components/shared/Marquee"
 import About from "@/components/shared/About"
@@ -8,6 +9,23 @@ import MenuIcon from "@/components/icons/MenuIcon"
 import { getHomePageData } from "@/utils/home-page-data"
 
 export const dynamic = "force-dynamic"
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "JiJi Fried Chicken | Taiwanese Fried Chicken in Amsterdam",
+  },
+  description:
+    "Visit JiJi Fried Chicken in Amsterdam for XL Taiwanese fried chicken cutlets, crispy popcorn chicken, halal options, and Taipei night market flavour.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "JiJi Fried Chicken | Taiwanese Fried Chicken in Amsterdam",
+    description:
+      "Visit JiJi Fried Chicken in Amsterdam for XL Taiwanese fried chicken cutlets, crispy popcorn chicken, halal options, and Taipei night market flavour.",
+    url: "/",
+  },
+}
 
 export default async function Home() {
   const { about, contact, hero, marqueeItems, menu, reviews } =
