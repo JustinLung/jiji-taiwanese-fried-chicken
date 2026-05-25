@@ -11,6 +11,7 @@ export default function Menu({
 }: MenuProps) {
   return (
     <section
+      id="menu"
       className="container mx-auto bg-grey-1 px-4 py-16 sm:py-20"
       aria-labelledby="menu-heading"
     >

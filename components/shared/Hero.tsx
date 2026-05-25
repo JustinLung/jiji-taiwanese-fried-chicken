@@ -38,6 +38,7 @@ export default function Hero({
 
   return (
     <section
+      id="home"
       className="relative isolate overflow-hidden bg-grey-1"
       aria-labelledby="hero-heading"
     >

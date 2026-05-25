@@ -82,49 +82,6 @@ export const menuItem = defineType({
           type: "string",
           validation: (Rule) => Rule.required(),
         }),
-        defineField({
-          name: "ingredients",
-          title: "Key Ingredients",
-          type: "array",
-          of: [{ type: "string" }],
-          validation: (Rule) => Rule.required().min(1),
-        }),
-        defineField({
-          name: "nutrition",
-          title: "Nutrition",
-          type: "array",
-          of: [
-            {
-              type: "object",
-              fields: [
-                defineField({
-                  name: "label",
-                  title: "Label",
-                  type: "string",
-                  validation: (Rule) => Rule.required(),
-                }),
-                defineField({
-                  name: "value",
-                  title: "Value",
-                  type: "string",
-                  validation: (Rule) => Rule.required(),
-                }),
-              ],
-              preview: {
-                select: {
-                  title: "label",
-                  subtitle: "value",
-                },
-              },
-            },
-          ],
-        }),
-        defineField({
-          name: "allergens",
-          title: "Allergens",
-          type: "array",
-          of: [{ type: "string" }],
-        }),
       ],
       validation: (Rule) => Rule.required(),
     }),

@@ -10,7 +10,9 @@ export default function Reviews({
 }: ReviewsProps) {
   return (
     <section
+      id="reviews"
       className="bg-grey-1 p-4 py-16 sm:py-20 container mx-auto"
+      aria-labelledby="reviews-heading"
     >
       <header className="mx-auto max-w-2xl text-center">
         <p className="font-heading text-extra-small! font-black uppercase leading-none! tracking-[0.18em] text-brand-1">

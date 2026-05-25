@@ -1,12 +1,6 @@
 import type { StaticImageData } from "next/image"
 
 export type MenuItemDetail = {
-  allergens: string[]
-  ingredients: string[]
-  nutrition: Array<{
-    label: string
-    value: string
-  }>
   prepTime: string
   servingNote?: string
   spiceLevel: string

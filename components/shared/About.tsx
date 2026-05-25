@@ -12,6 +12,7 @@ export default function About({
 }: AboutProps) {
   return (
     <section
+      id="about"
       className="bg-brand-2 py-16 sm:py-20"
       aria-labelledby="about-heading"
     >

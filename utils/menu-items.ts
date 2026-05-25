@@ -6,21 +6,6 @@ export const menuItems = [
     description:
       "Our legendary 3-inch crispy butterfly cutlet, seasoned with secret white pepper and fried to a golden crunch.",
     details: {
-      allergens: ["Soy", "Gluten"],
-      ingredients: [
-        "Butterflied Chicken Breast",
-        "Sweet Potato Starch",
-        "White Pepper",
-        "Five-Spice",
-        "Thai Basil",
-        "Garlic",
-      ],
-      nutrition: [
-        { label: "Protein", value: "46g" },
-        { label: "Fat", value: "24g" },
-        { label: "Carbs", value: "38g" },
-        { label: "Sodium", value: "820mg" },
-      ],
       prepTime: "8-10 min",
       servingNote: "1 XL cutlet",
       spiceLevel: "Spice Level 1/5",
@@ -39,21 +24,6 @@ export const menuItems = [
     description:
       "Bite-sized, extra-crunchy chicken nuggets tossed with fresh-fried aromatic Thai basil leaves and white pepper.",
     details: {
-      allergens: ["Soy", "Gluten"],
-      ingredients: [
-        "Chicken Thigh",
-        "Sweet Potato Starch",
-        "Thai Basil",
-        "White Pepper",
-        "Garlic",
-        "Sea Salt",
-      ],
-      nutrition: [
-        { label: "Protein", value: "34g" },
-        { label: "Fat", value: "20g" },
-        { label: "Carbs", value: "28g" },
-        { label: "Sodium", value: "690mg" },
-      ],
       prepTime: "6-8 min",
       servingNote: "Shareable cup",
       spiceLevel: "Spice Level 2/5",
@@ -72,22 +42,6 @@ export const menuItems = [
     description:
       "Crispy boneless chicken thigh chunks glazed with a sweet, sticky, and mouth-numbing chili sauce.",
     details: {
-      allergens: ["Soy", "Sesame", "Gluten"],
-      ingredients: [
-        "Boneless Chicken Thigh",
-        "Sichuan Peppercorns",
-        "Doubanjiang Chili Paste",
-        "Sweet Soy Glaze",
-        "Sesame Seeds",
-        "Fresh Scallions",
-        "Garlic & Ginger",
-      ],
-      nutrition: [
-        { label: "Protein", value: "32g" },
-        { label: "Fat", value: "22g" },
-        { label: "Carbs", value: "18g" },
-        { label: "Sodium", value: "740mg" },
-      ],
       prepTime: "8-10 min",
       servingNote: "480 kcal",
       spiceLevel: "Spice Level 3/5",
@@ -106,20 +60,6 @@ export const menuItems = [
     description:
       "Thick-cut sweet potato wedges dusted with plum powder for a sweet, salty, and sour punch.",
     details: {
-      allergens: ["Gluten"],
-      ingredients: [
-        "Taiwanese Sweet Potato",
-        "Plum Powder",
-        "Rice Flour",
-        "Sea Salt",
-        "Cane Sugar",
-      ],
-      nutrition: [
-        { label: "Protein", value: "5g" },
-        { label: "Fat", value: "12g" },
-        { label: "Carbs", value: "44g" },
-        { label: "Sodium", value: "410mg" },
-      ],
       prepTime: "5-7 min",
       servingNote: "Vegetarian",
       spiceLevel: "Spice Level 0/5",

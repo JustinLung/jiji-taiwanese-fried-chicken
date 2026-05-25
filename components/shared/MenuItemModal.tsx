@@ -155,67 +155,6 @@ export default function MenuItemModal({
                 >
                   {item.description}
                 </p>
-
-                <div className="mt-7 grid gap-7 md:grid-cols-2">
-                  <section aria-labelledby={`${titleId}-ingredients`}>
-                    <h3
-                      id={`${titleId}-ingredients`}
-                      className="font-heading text-extra-small! font-black uppercase leading-none! tracking-[0.14em] text-black"
-                    >
-                      Key Ingredients
-                    </h3>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {item.details.ingredients.map((ingredient) => (
-                        <li
-                          key={ingredient}
-                          className="rounded-md bg-grey-4 px-3 py-1.5 font-heading text-[0.65rem]! font-black leading-none! text-black/72"
-                        >
-                          {ingredient}
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-
-                  <section aria-labelledby={`${titleId}-nutrition`}>
-                    <h3
-                      id={`${titleId}-nutrition`}
-                      className="font-heading text-extra-small! font-black uppercase leading-none! tracking-[0.14em] text-black"
-                    >
-                      Nutrition
-                    </h3>
-                    <dl className="mt-4 grid grid-cols-2 gap-x-5 gap-y-3">
-                      {item.details.nutrition.map((nutrition) => (
-                        <div
-                          key={nutrition.label}
-                          className="flex items-center justify-between gap-3 border-b border-dashed border-black/15 pb-2"
-                        >
-                          <dt className="text-extra-small! leading-none! text-black/48">
-                            {nutrition.label}
-                          </dt>
-                          <dd className="font-heading text-extra-small! font-black leading-none! text-black">
-                            {nutrition.value}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </section>
-                </div>
-
-                <div className="mt-7 border-t border-black/10 pt-5">
-                  <h3 className="font-heading text-extra-small! font-black uppercase leading-none! tracking-[0.14em] text-black/65">
-                    Allergens
-                  </h3>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {item.details.allergens.map((allergen) => (
-                      <li
-                        key={allergen}
-                        className="rounded-md border border-brand-1 px-2.5 py-1 font-heading text-[0.58rem]! font-black uppercase leading-none! tracking-[0.08em] text-brand-1"
-                      >
-                        {allergen}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           </motion.div>

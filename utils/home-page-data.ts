@@ -1,7 +1,11 @@
 import Medal from "@/components/icons/Medal"
 import Spark from "@/components/icons/Spark"
 import { client } from "@/sanity/lib/client"
-import { homePageQuery, siteSettingsQuery } from "@/sanity/lib/queries"
+import {
+  homePageQuery,
+  menuItemsQuery,
+  siteSettingsQuery,
+} from "@/sanity/lib/queries"
 import type {
   CmsHomePage,
   CmsImage,
@@ -35,21 +39,17 @@ function cmsImage(
 }
 
 function normalizeMenuItems(
-  items: Array<CmsMenuItem | null> | null | undefined,
+  featuredItems: Array<CmsMenuItem | null> | null | undefined,
+  allItems: Array<CmsMenuItem | null> | null | undefined,
 ): MenuItem[] {
+  const items = allItems?.length ? allItems : featuredItems
   const normalizedItems =
     items
-      ?.filter(
-        (item): item is CmsMenuItem =>
-          Boolean(item?.badge && item.description && item.name && item.price),
-      )
+      ?.filter((item): item is CmsMenuItem => Boolean(item?.name))
       .map((item) => ({
-        badge: item.badge,
-        description: item.description,
+        badge: item.badge ?? "Fresh",
+        description: item.description ?? "",
         details: {
-          allergens: item.details?.allergens ?? [],
-          ingredients: item.details?.ingredients ?? [],
-          nutrition: item.details?.nutrition ?? [],
           prepTime: item.details?.prepTime ?? "",
           servingNote: item.details?.servingNote,
           spiceLevel: item.details?.spiceLevel ?? "",
@@ -60,8 +60,8 @@ function normalizeMenuItems(
           src: "/images/placeholder.jpg",
         }),
         name: item.name,
-        price: item.price,
-        rating: item.rating,
+        price: item.price ?? "",
+        rating: item.rating ?? 5,
       })) ?? []
 
   return normalizedItems.length ? normalizedItems : menuItems
@@ -113,10 +113,15 @@ function normalizeAboutAction(about: CmsHomePage["about"], hasHomePage: boolean)
 }
 
 export async function getHomePageData() {
-  const [homePage, siteSettings] = await Promise.all([
+  const [homePage, siteSettings, cmsMenuItems] = await Promise.all([
     client.fetch<CmsHomePage | null>(homePageQuery, {}, { cache: "no-store" }),
     client.fetch<CmsSiteSettings | null>(
       siteSettingsQuery,
+      {},
+      { cache: "no-store" },
+    ),
+    client.fetch<CmsMenuItem[] | null>(
+      menuItemsQuery,
       {},
       { cache: "no-store" },
     ),
@@ -240,7 +245,7 @@ export async function getHomePageData() {
         menuSection?.description ??
         "Prepared fresh with premium ingredients and our secret Taipei night market seasoning blend. Always hot, always crunchy.",
       eyebrow: menuSection?.eyebrow ?? "Taste The Street Food Sensation",
-      items: normalizeMenuItems(menuSection?.featuredItems),
+      items: normalizeMenuItems(menuSection?.featuredItems, cmsMenuItems),
       title: menuSection?.title ?? "JiJi Signature Favorites",
     },
     reviews: {

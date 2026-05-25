@@ -12,15 +12,15 @@ export type SocialLink = {
 export const links: NavLink[] = [
   {
     label: "About",
-    href: "/about",
+    href: "/#about",
   },
   {
     label: "Menu",
-    href: "/menu",
+    href: "/#menu",
   },
   {
     label: "Contact",
-    href: "/contact",
+    href: "/#contact",
   },
   {
     label: "Find Us",

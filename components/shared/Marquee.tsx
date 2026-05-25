@@ -24,6 +24,7 @@ function MarqueeTrack({ items }: MarqueeTrackProps) {
 export default function Marquee({ items = marqueeItems }: MarqueeProps) {
   return (
     <section
+      id="highlights"
       className="site-marquee overflow-hidden border-y-2 border-black bg-brand-1 text-grey-1"
       aria-label="JiJi highlights"
     >

@@ -50,6 +50,18 @@ export const homePageQuery = defineQuery(`
   }
 `)
 
+export const menuItemsQuery = defineQuery(`
+  *[_type == "menuItem"] | order(sortOrder asc, name asc) {
+    badge,
+    description,
+    details,
+    image{${imageFields}},
+    name,
+    price,
+    rating
+  }
+`)
+
 export const siteSettingsQuery = defineQuery(`
   *[_type == "siteSettings"][0]{
     businessName,
