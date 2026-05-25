@@ -1,8 +1,10 @@
 import Hero from "@/components/shared/Hero"
 import Marquee from "@/components/shared/Marquee"
+import Menu from "@/components/shared/Menu"
 import Reviews from "@/components/shared/Reviews"
 import MenuIcon from "@/components/icons/MenuIcon"
 import { links } from "@/utils/links"
+import { menuItems } from "@/utils/menu-items"
 import { reviews } from "@/utils/reviews"
 
 const menuHref = links.find((link) => link.label === "Menu")?.href ?? "/menu"
@@ -54,6 +56,17 @@ export default function Home() {
         }}
       />
       <Marquee />
+      <Menu
+        eyebrow="Taste The Street Food Sensation"
+        title="JiJi Signature Favorites"
+        description="Prepared fresh with premium ingredients and our secret Taipei night market seasoning blend. Always hot, always crunchy."
+        items={menuItems}
+        action={{
+          href: menuHref,
+          icon: "→",
+          label: "Explore Full Menu",
+        }}
+      />
       <Reviews
         eyebrow="Loved By Locals"
         title="What JiJi Fans Say"

@@ -2,9 +2,11 @@ import Link from "next/link"
 import type {
   AnchorHTMLAttributes,
   MouseEventHandler,
+  Ref,
   ReactNode,
 } from "react"
 
+type ButtonSize = "default" | "compact"
 type ButtonVariant = "primary" | "secondary"
 
 type ButtonBaseProps = {
@@ -12,6 +14,7 @@ type ButtonBaseProps = {
   className?: string
   icon?: ReactNode
   iconPosition?: "start" | "end"
+  size?: ButtonSize
   variant?: ButtonVariant
 }
 
@@ -28,11 +31,13 @@ type ButtonLinkProps = ButtonBaseProps &
 type ButtonElementProps = ButtonBaseProps & {
   "aria-controls"?: string
   "aria-expanded"?: boolean
+  "aria-haspopup"?: "dialog" | "false" | "grid" | "listbox" | "menu" | "true" | "tree"
   "aria-label"?: string
   "aria-pressed"?: boolean | "false" | "mixed" | "true"
   disabled?: boolean
   href?: undefined
   onClick?: MouseEventHandler<HTMLButtonElement>
+  ref?: Ref<HTMLButtonElement>
   title?: string
   type?: "button" | "reset" | "submit"
 }
@@ -40,7 +45,12 @@ type ButtonElementProps = ButtonBaseProps & {
 type ButtonProps = ButtonLinkProps | ButtonElementProps
 
 const baseClassName =
-  "inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl border-2 border-black px-7 font-heading text-small! font-black uppercase tracking-[0.08em] shadow-[0_5px_0_#181816] transition hover:-translate-y-0.5 hover:shadow-[0_7px_0_#181816] active:translate-y-0.5 active:shadow-[0_3px_0_#181816] outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-grey-1"
+  "inline-flex items-center justify-center rounded-2xl border-2 border-black font-heading font-black uppercase tracking-[0.08em] shadow-[0_5px_0_#181816] transition hover:-translate-y-0.5 hover:shadow-[0_7px_0_#181816] active:translate-y-0.5 active:shadow-[0_3px_0_#181816] outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-grey-1"
+
+const sizeClassNames: Record<ButtonSize, string> = {
+  default: "min-h-14 gap-3 px-7 text-small!",
+  compact: "min-h-7 gap-1.5 px-2.5 py-0 text-[0.5rem]!",
+}
 
 const variantClassNames: Record<ButtonVariant, string> = {
   primary: "bg-brand-1 text-white",
@@ -83,11 +93,13 @@ export default function Button(props: ButtonProps) {
     className,
     icon,
     iconPosition = "end",
+    size = "default",
     variant = "primary",
   } = props
 
   const combinedClassName = classNames(
     baseClassName,
+    sizeClassNames[size],
     variantClassNames[variant],
     className,
   )
@@ -124,10 +136,12 @@ export default function Button(props: ButtonProps) {
   const {
     "aria-controls": ariaControls,
     "aria-expanded": ariaExpanded,
+    "aria-haspopup": ariaHasPopup,
     "aria-label": ariaLabel,
     "aria-pressed": ariaPressed,
     disabled,
     onClick,
+    ref,
     title,
     type = "button",
   } = props
@@ -136,11 +150,13 @@ export default function Button(props: ButtonProps) {
     <button
       aria-controls={ariaControls}
       aria-expanded={ariaExpanded}
+      aria-haspopup={ariaHasPopup}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
       className={combinedClassName}
       disabled={disabled}
       onClick={onClick}
+      ref={ref}
       title={title}
       type={type}
     >

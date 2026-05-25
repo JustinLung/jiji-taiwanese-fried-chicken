@@ -17,6 +17,28 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "JiJi Fried Chicken",
   description: "Bringing the crunch to the heart of Amsterdam—XL Taiwanese fried chicken and crispy popcorn chicken. Taste the tradition with every bite!",
+  icons: {
+    icon: [
+      {
+        url: "/favicon-48x48.jpg",
+        sizes: "48x48",
+        type: "image/jpeg",
+      },
+      {
+        url: "/favicon-96x96.png",
+        sizes: "96x96",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+  manifest: "/site.webmanifest",
 }
 
 export const viewport: Viewport = {
