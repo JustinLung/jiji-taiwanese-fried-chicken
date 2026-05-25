@@ -17,14 +17,20 @@ export const homePageQuery = defineQuery(`
     },
     menuSection{
       ...,
-      featuredItems[]->{
-        badge,
-        description,
-        details,
-        image{${imageFields}},
-        name,
-        price,
-        rating
+      featuredItems[]{
+        _key,
+        _ref,
+        "item": @->{
+          _id,
+          _updatedAt,
+          badge,
+          description,
+          details,
+          image{${imageFields}},
+          name,
+          price,
+          rating
+        }
       }
     },
     marqueeItems,
@@ -52,6 +58,8 @@ export const homePageQuery = defineQuery(`
 
 export const menuItemsQuery = defineQuery(`
   *[_type == "menuItem"] | order(sortOrder asc, name asc) {
+    _id,
+    _updatedAt,
     badge,
     description,
     details,

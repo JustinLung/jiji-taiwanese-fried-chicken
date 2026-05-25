@@ -7,6 +7,7 @@ import {
   siteSettingsQuery,
 } from "@/sanity/lib/queries"
 import type {
+  CmsFeaturedMenuItem,
   CmsHomePage,
   CmsImage,
   CmsMarqueeItem,
@@ -39,10 +40,13 @@ function cmsImage(
 }
 
 function normalizeMenuItems(
-  featuredItems: Array<CmsMenuItem | null> | null | undefined,
+  featuredItems: Array<CmsFeaturedMenuItem | null> | null | undefined,
   allItems: Array<CmsMenuItem | null> | null | undefined,
 ): MenuItem[] {
-  const items = allItems?.length ? allItems : featuredItems
+  const resolvedFeaturedItems = featuredItems?.map(
+    (featuredItem) => featuredItem?.item ?? null,
+  )
+  const items = resolvedFeaturedItems?.length ? resolvedFeaturedItems : allItems
   const normalizedItems =
     items
       ?.filter((item): item is CmsMenuItem => Boolean(item?.name))
@@ -64,7 +68,9 @@ function normalizeMenuItems(
         rating: item.rating ?? 5,
       })) ?? []
 
-  return normalizedItems.length ? normalizedItems : menuItems
+  const finalItems = normalizedItems.length ? normalizedItems : menuItems
+
+  return finalItems
 }
 
 function normalizeReviews(items: Array<CmsReview | null> | null | undefined) {

@@ -7,8 +7,16 @@ export type CmsImage = {
 }
 
 export type CmsMenuItem = Omit<MenuItem, "details" | "image"> & {
+  _id?: string | null
+  _updatedAt?: string | null
   details?: Partial<MenuItem["details"]> | null
   image?: CmsImage | null
+}
+
+export type CmsFeaturedMenuItem = {
+  _key?: string | null
+  _ref?: string | null
+  item?: CmsMenuItem | null
 }
 
 export type CmsReview = {
@@ -19,6 +27,8 @@ export type CmsReview = {
 }
 
 export type CmsHomePage = {
+  _id?: string | null
+  _updatedAt?: string | null
   about?: {
     action?: {
       href?: string | null
@@ -81,7 +91,7 @@ export type CmsHomePage = {
     } | null
     description?: string | null
     eyebrow?: string | null
-    featuredItems?: Array<CmsMenuItem | null> | null
+    featuredItems?: Array<CmsFeaturedMenuItem | null> | null
     title?: string | null
   } | null
   marqueeItems?: CmsMarqueeItem[] | null
