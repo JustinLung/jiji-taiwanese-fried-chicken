@@ -6,35 +6,66 @@ import {
   legalLinks,
   links,
   socialLinks,
-  type NavLink,
-  type SocialLink,
 } from "@/utils/links"
 
-function validNavLinks(
-  items: CmsSiteSettings["mainNavigation"],
-  fallback: NavLink[],
-) {
-  const links = items
-    ?.filter((item) => item.href && item.label)
-    .map((item) => ({
-      href: item.href ?? "#",
-      label: item.label ?? "",
-      target: item.target ?? undefined,
-    }))
+const homeSectionIds = new Set(["about", "contact", "menu"])
 
-  return links?.length ? links : fallback
+function normalizeHref(href: string | null | undefined) {
+  const value = href?.trim()
+
+  if (!value || value === "#" || value === "/#") {
+    return undefined
+  }
+
+  if (value.startsWith("#")) {
+    return `/${value}`
+  }
+
+  const sectionId = value.toLowerCase()
+
+  if (homeSectionIds.has(sectionId)) {
+    return `/#${sectionId}`
+  }
+
+  return value
 }
 
-function validSimpleLinks<T extends { href: string; label: string }>(
-  items: Array<{ href?: string | null; label?: string | null }> | null | undefined,
-  fallback: T[],
+function fallbackHref(
+  label: string,
+  fallback: Array<{ href: string; label: string }>,
 ) {
-  const links = items
-    ?.filter((item) => item.href && item.label)
-    .map((item) => ({
-      href: item.href ?? "#",
-      label: item.label ?? "",
-    }))
+  const matchingLink = fallback.find(
+    (link) => link.label.toLowerCase() === label.toLowerCase(),
+  )
+
+  return matchingLink?.href
+}
+
+function validSimpleLinks(
+  items: Array<{ href?: string | null; label?: string | null }> | null | undefined,
+  fallback: Array<{ href: string; label: string }>,
+) {
+  const links = items?.reduce<Array<{ href: string; label: string }>>(
+    (resolvedLinks, item) => {
+      if (!item.label) {
+        return resolvedLinks
+      }
+
+      const href = normalizeHref(item.href) ?? fallbackHref(item.label, fallback)
+
+      if (!href) {
+        return resolvedLinks
+      }
+
+      resolvedLinks.push({
+        href,
+        label: item.label,
+      })
+
+      return resolvedLinks
+    },
+    [],
+  )
 
   return links?.length ? links : fallback
 }
@@ -65,10 +96,7 @@ export async function getFooterData() {
       siteSettings?.footerDescription ??
       "Bringing the crunch to the heart of Amsterdam—XL Taiwanese fried chicken and crispy popcorn chicken. Taste the tradition with every bite!",
     legalLinks: validSimpleLinks(siteSettings?.legalLinks, legalLinks),
-    mainNavigation: validNavLinks(siteSettings?.mainNavigation, links),
-    socialLinks: validSimpleLinks<SocialLink>(
-      siteSettings?.socialLinks,
-      socialLinks,
-    ),
+    mainNavigation: links,
+    socialLinks: validSimpleLinks(siteSettings?.socialLinks, socialLinks),
   }
 }
