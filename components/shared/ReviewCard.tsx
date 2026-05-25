@@ -1,12 +1,6 @@
 import Image from "next/image"
 import Star from "@/components/icons/Star"
-
-type ReviewCardProps = {
-  avatarSrc: string
-  name: string
-  quote: string
-  role: string
-}
+import type { ReviewCardProps } from "@/utils/component-types"
 
 export default function ReviewCard({
   avatarSrc,

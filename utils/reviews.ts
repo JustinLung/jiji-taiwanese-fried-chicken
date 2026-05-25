@@ -1,4 +1,4 @@
-import { Review } from "@/components/shared/Reviews";
+import type { Review } from "@/utils/component-types"
 
 export const reviews = [
     {

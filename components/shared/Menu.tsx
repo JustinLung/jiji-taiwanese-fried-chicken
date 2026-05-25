@@ -1,19 +1,6 @@
-import type { ReactNode } from "react"
+import type { MenuProps } from "@/utils/component-types"
 import Button from "./Button"
 import MenuCard from "./MenuCard"
-import type { MenuItem } from "./menu-types"
-
-type MenuProps = {
-  action?: {
-    href: string
-    icon?: ReactNode
-    label: string
-  }
-  description?: string
-  eyebrow: string
-  items: MenuItem[]
-  title: string
-}
 
 export default function Menu({
   action,

@@ -1,53 +1,7 @@
-import Image, { type StaticImageData } from "next/image"
-import type { ReactNode } from "react"
+import Image from "next/image"
 import CheckIcon from "@/components/icons/CheckIcon"
+import type { HeroAction, HeroProps } from "@/utils/component-types"
 import Button from "./Button"
-
-type HeroImage = {
-  alt: string
-  className?: string
-  priority?: boolean
-  sizes?: string
-  src: StaticImageData | string
-}
-
-type HeroAction = {
-  href: string
-  icon?: ReactNode
-  iconPosition?: "start" | "end"
-  label: string
-  target?: "_blank" | "_self"
-  variant?: "primary" | "secondary"
-}
-
-type HeroSizeBadge = {
-  ariaLabel?: string
-  eyebrow: string
-  label: string
-}
-
-type HeroQuote = {
-  avatar?: HeroImage
-  eyebrow: string
-  text: string
-}
-
-type HeroUsp = {
-  label: string
-}
-
-interface HeroProps {
-  description: string
-  image: HeroImage
-  title: string
-  eyebrow?: string
-  primaryAction?: HeroAction
-  quote?: HeroQuote
-  secondaryAction?: HeroAction
-  sizeBadge?: HeroSizeBadge
-  usps?: HeroUsp[]
-  showGradient?: boolean
-}
 
 function getTitleLines(title: string) {
   const explicitLines = title

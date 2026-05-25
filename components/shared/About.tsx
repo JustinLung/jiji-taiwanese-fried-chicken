@@ -1,39 +1,6 @@
 import Image from "next/image"
-import type { StaticImageData } from "next/image"
-import type { ComponentType, ReactNode, SVGProps } from "react"
+import type { AboutProps } from "@/utils/component-types"
 import Button from "./Button"
-
-type AboutImage = {
-  alt: string
-  src: StaticImageData | string
-}
-
-type AboutUsp = {
-  description: string
-  icon: ComponentType<SVGProps<SVGSVGElement>>
-  title: string
-}
-
-type AboutAction = {
-  href: string
-  icon?: ReactNode
-  label: string
-}
-
-type AboutProps = {
-  action: AboutAction
-  descriptions: string[]
-  eyebrow: string
-  images: {
-    caption: string
-    detail: AboutImage
-    label: string
-    main: AboutImage
-    mascot: AboutImage
-  }
-  title: string
-  usps: AboutUsp[]
-}
 
 export default function About({
   action,
@@ -80,15 +47,19 @@ export default function About({
         </figure>
 
         <header className="mx-auto max-w-150 text-center lg:mx-0 lg:text-left">
-          <span className="font-heading text-extra-small! font-black uppercase leading-none! tracking-[0.18em] text-brand-1">
-            {eyebrow}
-          </span>
-          <h2
-            id="about-heading"
-            className="mt-3 font-heading text-[clamp(2.1rem,5vw,3.4rem)]! font-black uppercase leading-none! tracking-[-0.07em] text-black"
-          >
-            {title}
-          </h2>
+          {eyebrow && (
+            <span className="font-heading text-extra-small! font-black uppercase leading-none! tracking-[0.18em] text-brand-1">
+              {eyebrow}
+            </span>
+          )}
+          {title && (
+            <h2
+              id="about-heading"
+              className="mt-3 font-heading text-[clamp(2.1rem,5vw,3.4rem)]! font-black uppercase leading-none! tracking-[-0.07em] text-black"
+            >
+              {title}
+            </h2>
+          )}
           {descriptions.map((description, index) => (
             <p
               className={`${index === 0 ? "mt-6" : "mt-4"} text-small! leading-7! text-black/72`}

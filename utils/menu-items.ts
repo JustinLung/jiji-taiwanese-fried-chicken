@@ -1,4 +1,4 @@
-import type { MenuItem } from "@/components/shared/menu-types"
+import type { MenuItem } from "@/utils/menu-types"
 
 export const menuItems = [
   {

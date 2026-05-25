@@ -1,48 +1,12 @@
 import Link from "next/link"
 import type {
-  AnchorHTMLAttributes,
-  MouseEventHandler,
-  Ref,
-  ReactNode,
-} from "react"
-
-type ButtonSize = "default" | "compact"
-type ButtonVariant = "primary" | "secondary"
-
-type ButtonBaseProps = {
-  children: ReactNode
-  className?: string
-  icon?: ReactNode
-  iconPosition?: "start" | "end"
-  size?: ButtonSize
-  variant?: ButtonVariant
-}
-
-type ButtonLinkProps = ButtonBaseProps &
-  Pick<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    "download" | "rel" | "target" | "title"
-  > & {
-    "aria-label"?: string
-    href: string
-    onClick?: MouseEventHandler<HTMLAnchorElement>
-  }
-
-type ButtonElementProps = ButtonBaseProps & {
-  "aria-controls"?: string
-  "aria-expanded"?: boolean
-  "aria-haspopup"?: "dialog" | "false" | "grid" | "listbox" | "menu" | "true" | "tree"
-  "aria-label"?: string
-  "aria-pressed"?: boolean | "false" | "mixed" | "true"
-  disabled?: boolean
-  href?: undefined
-  onClick?: MouseEventHandler<HTMLButtonElement>
-  ref?: Ref<HTMLButtonElement>
-  title?: string
-  type?: "button" | "reset" | "submit"
-}
-
-type ButtonProps = ButtonLinkProps | ButtonElementProps
+  ButtonBaseProps,
+  ButtonElementProps,
+  ButtonLinkProps,
+  ButtonProps,
+  ButtonSize,
+  ButtonVariant,
+} from "@/utils/component-types"
 
 const baseClassName =
   "inline-flex items-center justify-center rounded-2xl border-2 border-black font-heading font-black uppercase tracking-[0.08em] shadow-[0_5px_0_#181816] transition hover:-translate-y-0.5 hover:shadow-[0_7px_0_#181816] active:translate-y-0.5 active:shadow-[0_3px_0_#181816] outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-grey-1"

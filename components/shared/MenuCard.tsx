@@ -3,11 +3,9 @@
 import Image from "next/image"
 import { useCallback, useRef, useState } from "react"
 import Star from "@/components/icons/Star"
+import type { MenuCardProps } from "@/utils/component-types"
 import MenuItemModal from "@/components/shared/MenuItemModal"
 import Button from "./Button"
-import type { MenuItem } from "./menu-types"
-
-type MenuCardProps = MenuItem
 
 export default function MenuCard({
   badge,

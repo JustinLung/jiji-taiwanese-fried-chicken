@@ -1,19 +1,6 @@
 import Star from "@/components/icons/Star"
+import type { ReviewsProps } from "@/utils/component-types"
 import ReviewCard from "./ReviewCard"
-
-export type Review = {
-  avatarSrc: string
-  name: string
-  quote: string
-  role: string
-}
-
-type ReviewsProps = {
-  eyebrow: string
-  ratingLabel: string
-  reviews: Review[]
-  title: string
-}
 
 export default function Reviews({
   eyebrow,

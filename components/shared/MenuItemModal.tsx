@@ -3,13 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useId, useRef } from "react"
-import type { MenuItem } from "./menu-types"
-
-type MenuItemModalProps = {
-  isOpen: boolean
-  item: MenuItem
-  onClose: () => void
-}
+import type { MenuItemModalProps } from "@/utils/component-types"
 
 const focusableSelector = [
   "a[href]",

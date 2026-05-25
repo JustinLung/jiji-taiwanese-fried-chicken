@@ -1,9 +1,10 @@
 import { icons, marqueeItems } from "@/utils/marquee-items"
+import type { MarqueeProps, MarqueeTrackProps } from "@/utils/component-types"
 
-function MarqueeTrack() {
+function MarqueeTrack({ items }: MarqueeTrackProps) {
   return (
     <div className="site-marquee-track flex min-w-max flex-none">
-      {marqueeItems.map((item) => {
+      {items.map((item) => {
         const Icon = icons[item.icon]
 
         return (
@@ -20,7 +21,7 @@ function MarqueeTrack() {
   )
 }
 
-export default function Marquee() {
+export default function Marquee({ items = marqueeItems }: MarqueeProps) {
   return (
     <section
       className="site-marquee overflow-hidden border-y-2 border-black bg-brand-1 text-grey-1"
@@ -33,8 +34,8 @@ export default function Marquee() {
       </ul>
 
       <div className="flex w-full overflow-hidden" aria-hidden="true">
-        <MarqueeTrack />
-        <MarqueeTrack />
+        <MarqueeTrack items={items} />
+        <MarqueeTrack items={items} />
       </div>
     </section>
   )
