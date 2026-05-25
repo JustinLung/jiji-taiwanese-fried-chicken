@@ -26,8 +26,18 @@ export default function Header() {
           <Image
             src="/images/logo-no-text.png"
             alt="JiJi Fried Chicken"
-            width={50}
-            height={50}
+            width={68}
+            height={100}
+            className="h-16 w-auto md:hidden"
+            priority
+          />
+          <Image
+            src="/images/logo-red.png"
+            alt="JiJi Fried Chicken"
+            width={150}
+            height={76}
+            className="hidden h-auto w-[150px] md:block"
+            priority
           />
         </Link>
 

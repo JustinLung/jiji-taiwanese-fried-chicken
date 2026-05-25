@@ -23,10 +23,10 @@ export default function Footer() {
               className="inline-flex items-center gap-4 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand-1 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo-red.png"
                 alt="JiJi Fried Chicken"
-                width={100}
-                height={100}
+                width={200}
+                height={200}
               />
             </Link>
 
