@@ -13,7 +13,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="relative z-50 border-b border-black/10 bg-grey-1">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-grey-1">
       <nav
         className="container mx-auto flex items-center justify-between gap-6 p-4"
         aria-label="Main navigation"
