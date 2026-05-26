@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image"
 
 export type MenuItemDetail = {
-  prepTime: string
+  prepTime?: string
   servingNote?: string
   spiceLevel: string
 }

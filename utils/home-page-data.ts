@@ -54,7 +54,7 @@ function normalizeMenuItems(
         badge: item.badge ?? "Fresh",
         description: item.description ?? "",
         details: {
-          prepTime: item.details?.prepTime ?? "",
+          prepTime: item.details?.prepTime ?? undefined,
           servingNote: item.details?.servingNote,
           spiceLevel: item.details?.spiceLevel ?? "",
         },

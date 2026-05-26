@@ -69,7 +69,7 @@ export const menuItem = defineType({
           name: "prepTime",
           title: "Prep Time",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          description: "Optional preparation time shown in the menu details modal.",
         }),
         defineField({
           name: "servingNote",
@@ -83,7 +83,6 @@ export const menuItem = defineType({
           validation: (Rule) => Rule.required(),
         }),
       ],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "sortOrder",

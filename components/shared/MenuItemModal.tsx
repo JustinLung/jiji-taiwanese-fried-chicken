@@ -75,7 +75,7 @@ export default function MenuItemModal({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[9999] grid place-items-center bg-black/55 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-9999 grid place-items-center bg-black/55 p-4 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -143,7 +143,9 @@ export default function MenuItemModal({
                 </div>
 
                 <div className="mt-4 flex flex-wrap items-center gap-4 border-b border-black/10 pb-5 text-extra-small! text-black/55">
-                  <span>{item.details.prepTime}</span>
+                  {item.details.prepTime && (
+                    <span>{item.details.prepTime}</span>
+                  )}
                   {item.details.servingNote && (
                     <span>{item.details.servingNote}</span>
                   )}
