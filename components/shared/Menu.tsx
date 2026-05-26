@@ -1,14 +1,21 @@
-import type { MenuProps } from "@/utils/component-types"
+import type { MenuAction, MenuProps } from "@/utils/component-types"
 import Button from "./Button"
 import MenuCard from "./MenuCard"
 
+function isMenuAction(action: MenuAction | undefined): action is MenuAction {
+  return Boolean(action)
+}
+
 export default function Menu({
   action,
+  action2,
   description,
   eyebrow,
   items,
   title,
 }: MenuProps) {
+  const actions = [action, action2].filter(isMenuAction)
+
   return (
     <section
       id="menu"
@@ -41,16 +48,20 @@ export default function Menu({
         ))}
       </div>
 
-      {action && (
-        <div className="mt-10 flex justify-center">
-          <Button
-            href={action.href}
-            target={action.target}
-            icon={action.icon}
-            className="min-h-12 px-6"
-          >
-            {action.label}
-          </Button>
+      {actions.length > 0 && (
+        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          {actions.map((item) => (
+            <Button
+              href={item.href}
+              target={item.target}
+              icon={item.icon}
+              variant={item.variant}
+              className="min-h-12 px-6"
+              key={`${item.href}-${item.label}`}
+            >
+              {item.label}
+            </Button>
+          ))}
         </div>
       )}
     </section>

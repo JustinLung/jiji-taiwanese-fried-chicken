@@ -224,6 +224,13 @@ export const homePage = defineType({
           type: "object",
           fields: actionFields,
         }),
+        defineField({
+          name: "action2",
+          title: "Second Action",
+          description: "Optional. Appears next to the first menu action button.",
+          type: "object",
+          fields: actionFields,
+        }),
       ],
     }),
     defineField({

@@ -61,6 +61,14 @@ export default async function Home() {
           ...menu.action,
           icon: "→",
         }}
+        action2={
+          menu.action2
+            ? {
+                ...menu.action2,
+                icon: "→",
+              }
+            : undefined
+        }
       />
       <About
         eyebrow={about.eyebrow}

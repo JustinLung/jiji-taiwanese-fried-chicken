@@ -89,6 +89,11 @@ export type CmsHomePage = {
       label?: string | null
       target?: "_blank" | "_self" | null
     } | null
+    action2?: {
+      href?: string | null
+      label?: string | null
+      target?: "_blank" | "_self" | null
+    } | null
     description?: string | null
     eyebrow?: string | null
     featuredItems?: Array<CmsFeaturedMenuItem | null> | null

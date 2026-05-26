@@ -132,13 +132,17 @@ export type AboutProps = {
   usps: AboutUsp[]
 }
 
+export type MenuAction = {
+  href: string
+  icon?: ReactNode
+  label: string
+  target?: "_blank" | "_self"
+  variant?: ButtonVariant
+}
+
 export type MenuProps = {
-  action?: {
-    href: string
-    icon?: ReactNode
-    label: string
-    target?: "_blank" | "_self"
-  }
+  action?: MenuAction
+  action2?: MenuAction
   description?: string
   eyebrow: string
   items: MenuItem[]

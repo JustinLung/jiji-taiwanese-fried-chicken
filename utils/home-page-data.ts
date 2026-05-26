@@ -248,6 +248,15 @@ export async function getHomePageData() {
         label: menuSection?.action?.label ?? "Explore Full Menu",
         target: menuSection?.action?.target ?? undefined,
       },
+      action2:
+        menuSection?.action2?.href && menuSection.action2.label
+          ? {
+              href: menuSection.action2.href,
+              label: menuSection.action2.label,
+              target: menuSection.action2.target ?? undefined,
+              variant: "secondary" as const,
+            }
+          : undefined,
       description:
         menuSection?.description ??
         "Prepared fresh with premium ingredients and our secret Taipei night market seasoning blend. Always hot, always crunchy.",
